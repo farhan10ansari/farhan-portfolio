@@ -1,3 +1,4 @@
+import { useMemo, useState } from "react";
 import "./App.css";
 
 const skills = {
@@ -25,6 +26,7 @@ const projects = [
     name: "SpendMate (Play Store)",
     desc: "Production-ready personal finance app with analytics, biometric lock, backup/restore, and multi-currency support.",
     stack: "React Native, Expo, SQLite, Drizzle ORM, Zustand",
+    link: "https://play.google.com/store/apps/details?id=com.farhan10ansari.spendmate",
   },
   {
     name: "Connect With UGI",
@@ -34,10 +36,16 @@ const projects = [
 ];
 
 export default function App() {
+  const [theme, setTheme] = useState<"dark" | "light">("dark");
+  const themeLabel = useMemo(() => (theme === "dark" ? "Switch to Light" : "Switch to Dark"), [theme]);
+
   return (
-    <div className="page">
+    <div className={`page ${theme}`}>
       <header className="hero card">
-        <p className="badge">Full Stack Developer • 2.5+ Years</p>
+        <div className="topbar">
+          <p className="badge">Full Stack Developer • 2.5+ Years</p>
+          <button className="theme-btn" onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>{themeLabel}</button>
+        </div>
         <h1>Mohd Farhan Ansari</h1>
         <p>
           I build high-performance web and mobile products with React, TypeScript, and AI-powered systems that create measurable business impact.
@@ -89,6 +97,7 @@ export default function App() {
               <h3>{p.name}</h3>
               <p>{p.desc}</p>
               <p className="muted">{p.stack}</p>
+              {p.link && <a href={p.link} target="_blank">View on Play Store</a>}
             </article>
           ))}
         </div>

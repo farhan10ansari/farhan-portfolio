@@ -84,6 +84,16 @@ body {
   padding: 58px 0 36px;
 }
 
+.profilePhoto {
+  width: 112px;
+  height: 112px;
+  border-radius: 999px;
+  object-fit: cover;
+  border: 3px solid var(--primary-2);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  margin-bottom: 14px;
+}
+
 .eyebrow {
   color: var(--primary-2);
   font-weight: 700;

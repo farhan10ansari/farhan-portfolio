@@ -66,6 +66,11 @@ export default function App() {
         </nav>
 
         <div className="heroContent">
+          <img
+            className="profilePhoto"
+            src="https://drive.google.com/uc?export=view&id=1qOaOPGmTs1se_6oLcB8HMmgUSQPwE_HT"
+            alt="Mohd Farhan Ansari"
+          />
           <p className="eyebrow">Full Stack Developer • 2.5+ Years Experience</p>
           <h1>Building scalable products with measurable business impact.</h1>
           <p className="summary">

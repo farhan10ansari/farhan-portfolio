@@ -2,188 +2,141 @@ import { useState } from "react";
 import profilePhoto from "./assets/profile.jpg";
 import "./App.css";
 
-const skillGroups = [
+const experiences = [
   {
-    title: "Frontend",
-    items: ["React.js", "TypeScript", "Redux Toolkit", "Zustand", "TanStack Query", "React Native"],
+    role: "Full Stack Developer",
+    company: "Sngy Machines Private Limited, Noida",
+    period: "Apr 2023 — Present",
+    points: [
+      "Built AI-Harness (multi-model LLM platform with enterprise guardrails).",
+      "Developed project management platform replacing Excel for 50+ users.",
+      "Improved datagrid performance by 70% and reduced re-renders by 40%.",
+    ],
   },
   {
-    title: "Backend",
-    items: ["Node.js", "Express.js", "Python Flask", "REST APIs"],
+    role: "Software Developer Intern",
+    company: "CodeQuotient",
+    period: "Feb 2023 — Apr 2023",
+    points: [
+      "Built MERN e-commerce modules (auth, catalog, cart, order flows).",
+      "Created full-stack mini products for practical product engineering.",
+    ],
   },
-  {
-    title: "Databases",
-    items: ["PostgreSQL", "MongoDB", "SQLite", "Drizzle ORM"],
-  },
-  {
-    title: "AI & Tooling",
-    items: ["OpenAI API", "Gemini API", "Docker", "Git", "Postman"],
-  },
-];
-
-const highlights = [
-  { metric: "70%", label: "Datagrid performance improvement" },
-  { metric: "90%", label: "Document AI query relevance" },
-  { metric: "60%", label: "Manual research time reduced" },
-  { metric: "50+", label: "Users served by PM platform" },
 ];
 
 const projects = [
   {
-    name: "AI-Harness",
-    subtitle: "Enterprise Generative AI Platform",
-    impact:
-      "Built multi-model LLM workflows with AI guardrails and document intelligence, improving supplier research and internal knowledge retrieval.",
-    stack: ["React", "TypeScript", "Python Flask", "OpenAI", "Gemini"],
+    title: "AI-Harness",
+    subtitle: "Generative AI Platform",
+    description:
+      "Architected a multi-model chatbot and document intelligence system with AI safety guardrails and supplier search automation.",
+    tags: ["React", "TypeScript", "Flask", "OpenAI", "Gemini"],
   },
   {
-    name: "SpendMate",
+    title: "SpendMate",
     subtitle: "Personal Finance App (Play Store)",
-    impact:
-      "Designed a production-grade mobile expense tracker with biometric lock, backup/restore, and sub-50ms SQLite+Drizzle performance.",
-    stack: ["React Native", "Expo", "SQLite", "Drizzle ORM", "Zustand"],
+    description:
+      "Built and shipped a full-stack expense app with biometric lock, backup/restore, multi-currency support, and sub-50ms query performance.",
+    tags: ["React Native", "Expo", "SQLite", "Drizzle ORM", "Zustand"],
     link: "https://play.google.com/store/apps/details?id=com.farhan10ansari.spendmate",
   },
   {
-    name: "Connect With UGI",
+    title: "Connect With UGI",
     subtitle: "College Social Platform",
-    impact:
-      "Created a social + realtime messaging app for 500+ students, enabling cross-year collaboration and faster resource sharing.",
-    stack: ["React", "Node.js", "Express", "MongoDB", "Socket.IO"],
+    description:
+      "Developed a social network with real-time chat and academic sharing for 500+ students across batches and branches.",
+    tags: ["React", "Node.js", "Express", "MongoDB", "Socket.IO"],
   },
 ];
 
 export default function App() {
-  const [theme, setTheme] = useState<"dark" | "light">("dark");
+  const [dark, setDark] = useState(true);
 
   return (
-    <div className={`portfolio ${theme}`}>
-      <header className="hero container reveal">
-        <nav className="topnav">
-          <span className="brand">Mohd Farhan Ansari</span>
-          <button className="themeToggle" onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>
-            {theme === "dark" ? "Light" : "Dark"} Mode
-          </button>
-        </nav>
+    <div className={dark ? "layout dark" : "layout"}>
+      <aside className="sidebar">
+        <img src={profilePhoto} alt="Mohd Farhan Ansari" className="avatar" />
+        <h1>Mohd Farhan Ansari</h1>
+        <p className="title">Full Stack Developer</p>
+        <p className="muted">2.5+ years • React • TypeScript • AI-integrated products</p>
 
-        <div className="heroContent">
-          <img className="profilePhoto" src={profilePhoto} alt="Mohd Farhan Ansari" />
-          <p className="eyebrow">Full Stack Developer • 2.5+ Years Experience</p>
-          <h1>Building scalable products with measurable business impact.</h1>
-          <p className="summary">
-            I’m a Full Stack Developer focused on React, TypeScript, and AI-integrated systems. I build performant
-            web/mobile products that improve speed, usability, and team output.
-          </p>
-          <div className="ctaRow">
-            <a className="btn primary" href="mailto:farhan10ansari@gmail.com">
-              Hire Me
-            </a>
-            <a className="btn" href="https://www.linkedin.com/in/farhan10ansari/" target="_blank">
-              LinkedIn
-            </a>
-            <a className="btn" href="https://github.com/farhan10ansari" target="_blank">
-              GitHub
-            </a>
-          </div>
-        </div>
-      </header>
-
-      <section className="container stats reveal">
-        {highlights.map((h) => (
-          <article key={h.label} className="card statCard">
-            <h3>{h.metric}</h3>
-            <p>{h.label}</p>
-          </article>
-        ))}
-      </section>
-
-      <section className="container reveal">
-        <div className="sectionHead">
-          <h2>Experience</h2>
-          <p>Delivering production systems across AI, project management, and mobile platforms.</p>
+        <div className="contact">
+          <a href="mailto:farhan10ansari@gmail.com">farhan10ansari@gmail.com</a>
+          <a href="tel:+919919636968">+91 9919636968</a>
+          <a href="https://www.linkedin.com/in/farhan10ansari/" target="_blank">LinkedIn</a>
+          <a href="https://github.com/farhan10ansari" target="_blank">GitHub</a>
         </div>
 
-        <div className="timeline">
-          <article className="card timelineItem">
-            <h3>Full Stack Developer — Sngy Machines Pvt. Ltd. (Noida)</h3>
-            <span>Apr 2023 — Present</span>
-            <ul>
-              <li>Built AI-Harness from scratch with multi-model LLMs and enterprise safety controls.</li>
-              <li>Developed a virtualized project platform replacing Excel for 50+ active users.</li>
-              <li>Improved render performance by 70% and reduced component re-renders by 40%.</li>
-            </ul>
-          </article>
+        <button className="toggle" onClick={() => setDark(!dark)}>
+          {dark ? "Light Mode" : "Dark Mode"}
+        </button>
+      </aside>
 
-          <article className="card timelineItem">
-            <h3>Software Developer Intern — CodeQuotient</h3>
-            <span>Feb 2023 — Apr 2023</span>
-            <ul>
-              <li>Built MERN e-commerce modules with auth, product catalog, and cart workflows.</li>
-              <li>Developed full-stack mini products including a discussion portal and productivity tools.</li>
-            </ul>
-          </article>
-        </div>
-      </section>
-
-      <section className="container reveal">
-        <div className="sectionHead">
-          <h2>Featured Projects</h2>
-          <p>Selected work focused on real users, speed, and business outcomes.</p>
-        </div>
-        <div className="projectGrid">
-          {projects.map((p) => (
-            <article key={p.name} className="card projectCard">
-              <h3>{p.name}</h3>
-              <p className="subtitle">{p.subtitle}</p>
-              <p>{p.impact}</p>
-              <div className="tags">
-                {p.stack.map((s) => (
-                  <span key={s}>{s}</span>
-                ))}
-              </div>
-              {p.link && (
-                <a className="projectLink" href={p.link} target="_blank">
-                  View Project ↗
-                </a>
-              )}
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="container reveal">
-        <div className="sectionHead">
-          <h2>Skills</h2>
-          <p>Strong product engineering foundation across frontend, backend, data, and AI integrations.</p>
-        </div>
-        <div className="skillsGrid">
-          {skillGroups.map((group) => (
-            <article key={group.title} className="card skillCard">
-              <h3>{group.title}</h3>
-              <ul>
-                {group.items.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="container reveal">
-        <article className="card contact">
-          <h2>Let’s build something impactful.</h2>
+      <main className="content">
+        <section className="section hero">
+          <h2>Professional Summary</h2>
           <p>
-            Open to full-time opportunities where I can contribute across modern frontend, backend, and AI-driven product
-            development.
+            Full Stack Developer with proven impact in performance optimization, scalable platform development, and
+            enterprise AI integration. I focus on shipping robust products with measurable outcomes.
           </p>
-          <div className="contactMeta">
-            <a href="mailto:farhan10ansari@gmail.com">farhan10ansari@gmail.com</a>
-            <a href="tel:+919919636968">+91 9919636968</a>
-            <span>Pratapgarh, Uttar Pradesh, India</span>
+          <div className="kpis">
+            <div><strong>70%</strong><span>Performance boost</span></div>
+            <div><strong>90%</strong><span>AI query relevance</span></div>
+            <div><strong>50+</strong><span>Active users served</span></div>
+            <div><strong>&lt;50ms</strong><span>SQLite query time</span></div>
           </div>
-        </article>
-      </section>
+        </section>
+
+        <section className="section">
+          <h2>Experience</h2>
+          <div className="timeline">
+            {experiences.map((exp) => (
+              <article key={exp.role + exp.company} className="card">
+                <h3>{exp.role}</h3>
+                <p className="meta">{exp.company} • {exp.period}</p>
+                <ul>
+                  {exp.points.map((p) => <li key={p}>{p}</li>)}
+                </ul>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="section">
+          <h2>Projects</h2>
+          <div className="grid">
+            {projects.map((project) => (
+              <article className="card" key={project.title}>
+                <h3>{project.title}</h3>
+                <p className="meta">{project.subtitle}</p>
+                <p>{project.description}</p>
+                <div className="tags">
+                  {project.tags.map((tag) => <span key={tag}>{tag}</span>)}
+                </div>
+                {project.link && <a className="link" href={project.link} target="_blank">View Project ↗</a>}
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="section twoCol">
+          <article className="card">
+            <h2>Skills</h2>
+            <p><strong>Frontend:</strong> React.js, TypeScript, Redux Toolkit, Zustand, TanStack Query, React Native</p>
+            <p><strong>Backend:</strong> Node.js, Express.js, Python Flask, REST APIs</p>
+            <p><strong>Databases:</strong> PostgreSQL, MongoDB, SQLite, Drizzle ORM</p>
+            <p><strong>Tools:</strong> Git, Docker, Postman, OpenAI API, Gemini API</p>
+          </article>
+          <article className="card">
+            <h2>Education</h2>
+            <p><strong>B.Tech, CSE</strong><br />United Institute of Technology, Prayagraj (2019–2023)<br />CGPA: 8.06 / 10</p>
+            <h2>Location</h2>
+            <p>Pratapgarh, Uttar Pradesh, India</p>
+            <h2>Notice Period</h2>
+            <p>30 Days (Negotiable)</p>
+          </article>
+        </section>
+      </main>
     </div>
   );
 }

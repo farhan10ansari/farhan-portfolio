@@ -1,0 +1,41 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  color: #e8ecff;
+  background: #0b1020;
+}
+
+* { box-sizing: border-box; }
+
+body { margin: 0; background: radial-gradient(circle at top, #1f2a59, #0b1020 55%); }
+
+.page {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 24px;
+  display: grid;
+  gap: 16px;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  padding: 20px;
+  backdrop-filter: blur(8px);
+}
+
+.hero h1 { margin: 8px 0 10px; font-size: 2rem; }
+.badge { color: #9bd0ff; font-weight: 600; margin: 0; }
+.muted { color: #b8bfdc; }
+
+.links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 14px; }
+.links a { color: #9bd0ff; text-decoration: none; }
+.links a:hover { text-decoration: underline; }
+
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.projects { display: grid; gap: 12px; }
+.projects article { padding: 12px; border-radius: 10px; background: rgba(255,255,255,.04); }
+
+@media (max-width: 720px) {
+  .grid { grid-template-columns: 1fr; }
+}

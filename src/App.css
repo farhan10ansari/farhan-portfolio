@@ -41,6 +41,10 @@ body {
   margin: 0 auto;
 }
 
+.container + .container {
+  margin-top: 22px;
+}
+
 .reveal {
   animation: fadeUp .5s ease;
 }
@@ -81,7 +85,7 @@ body {
 }
 
 .heroContent {
-  padding: 58px 0 36px;
+  padding: 58px 0 42px;
 }
 
 .profilePhoto {
